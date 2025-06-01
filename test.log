@@ -1,0 +1,3 @@
+2025-06-01 20:21:06.418 UTC [93] ERROR:  could not extend file "base/5/16387": No space left on device
+2025-06-01 20:21:06.418 UTC [93] HINT:  Check free disk space.
+2025-06-01 20:21:06.418 UTC [93] STATEMENT:  CREATE TABLE IF NOT EXISTS fill_disk (data TEXT); INSERT INTO fill_disk (data) SELECT repeat('a', 1000000) FROM generate_series(1, 2000);

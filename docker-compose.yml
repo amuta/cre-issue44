@@ -1,0 +1,16 @@
+# docker-compose.yml
+version: '3.8'
+services:
+  postgres:
+    image: postgres:17.5 # Or postgres:17.5, or your preferred recent version
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    tmpfs:
+      - /var/lib/postgresql/data:size=70m # Small size for quick disk fill
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -h localhost -q"]
+      interval: 2s
+      timeout: 2s
+      retries: 15 # Approx 30s for postgres to become healthy
+      start_period: 3s
